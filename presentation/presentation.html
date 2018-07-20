@@ -5,12 +5,35 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>Page Title</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.6.0/js/reveal.min.js"></script>
+  
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.6.0/css/reveal.min.css" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.6.0/css/theme/black.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.6.0/css/theme/white.min.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.6.0/lib/css/zenburn.min.css" />
+  <link rel="stylesheet" href="main.css"
 </head>
 <body>
-  
+  <div class="reveal">
+    <div class="slides">
+      <section>
+        <h1>Altair</h1>
+        <h2>the new kid on the block</h2>
+        <img src="images/altair_gallery.png">
+        <p class="footer"><a href="www.example.com">github</a></p>
+      </section>
+      <section>Slide 2</section>
+    </div>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.6.0/js/reveal.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.6.0/lib/js/head.min.js"></script>
+  <script>
+    // More info about config & dependencies:
+    Reveal.initialize({
+      dependencies: [
+        { src: 'https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.6.0/plugin/highlight/highlight.min.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+      ]
+    });
+  </script>
+
 </body>
 </html>
