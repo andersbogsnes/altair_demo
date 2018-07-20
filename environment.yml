@@ -1,0 +1,10 @@
+name: altair
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - altair=2.0.1
+  - jupyterlab=0.32.1
+  - pandas=0.22.0
+  - python=3.6.5
+  - jinja2=2.10

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Page Title</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script src="https://cdn.jsdelivr.net/npm//vega@3.2"></script>
+  <script src="https://cdn.jsdelivr.net/npm//vega-lite@2.4.1"></script>
+  <script src="https://cdn.jsdelivr.net/npm//vega-embed@3.0"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.1/css/bulma.min.css" />
+</head>
+<body>
+  <section class="hero is-info is-medium">
+    <div class="hero-body">
+      <div class="container">
+        <h1 class="title">IMDB Top Movies for 2012-2016</h1>
+        <h2 class="subtitle">An analysis in Altair</h2>
+      </div>
+    </div> 
+  </section>
+  
+  <section class="section">
+    <div class="container">
+      <h2 class="subtitle">{{ chart_title }}</h2>
+      <div id="chart"></div>
+    </div>
+  </section>
+  {% if comments %}
+  <section class="section is-paddingless">
+    <div class="container">
+      <p class="has-text-justified">{{ comments }}</p>
+    </div>
+  {% endif %}  
+  <script>
+    const spec = {{ chart }}
+  
+    const embed_opt = {"mode": "vega-lite", "actions": false};
+
+    function showError(el, error){
+        el.innerHTML = ('<div class="error">'
+                        + '<p>JavaScript Error: ' + error.message + '</p>'
+                        + "<p>This usually means there's a typo in your chart specification. "
+                        + "See the javascript console for the full traceback.</p>"
+                        + '</div>');
+        throw error;
+    }
+
+    const el = document.getElementById('chart');
+    
+    vegaEmbed("#chart", spec, embed_opt)
+      .catch(error => showError(el, error));
+  
+  </script>
+</body>
+</html>
