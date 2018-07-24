@@ -9,7 +9,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.6.0/css/reveal.min.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.6.0/css/theme/white.min.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.6.0/lib/css/zenburn.min.css" />
-  <link rel="stylesheet" href="main.css"
+  <link rel="stylesheet" href="main.css" />
 </head>
 <body>
   <div class="reveal">
@@ -30,7 +30,9 @@
     // More info about config & dependencies:
     Reveal.initialize({
       dependencies: [
-        { src: 'https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.6.0/plugin/highlight/highlight.min.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+        { src: 'https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.6.0/plugin/highlight/highlight.min.js',
+          async: true,
+          callback: function() { hljs.initHighlightingOnLoad(); } }
       ]
     });
   </script>
