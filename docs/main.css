@@ -1,10 +1,17 @@
 .footer {
- left: 0;
- bottom: 0;
- text-align: left
+    font-size: 10px;
+    left: 0;
+    bottom: 0;
+    text-align: left
 
 }
 
-.title {
-  font-size: 16px;
+.titlemain {
+    text-align: left;
+    font-size: 16px;
+}
+
+.subtitlemain {
+    text-align: left;
+    font-size: 10px;
 }

@@ -1,41 +1,190 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <meta charset="utf-8" />
+  <meta charset="utf-8"/>
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>Page Title</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.6.0/css/reveal.min.css" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.6.0/css/theme/white.min.css" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.6.0/lib/css/zenburn.min.css" />
-  <link rel="stylesheet" href="main.css" />
+
+  <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.6.0/css/reveal.min.css"/>
+  <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.6.0/css/theme/white.min.css"/>
+  <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.6.0/lib/css/zenburn.min.css"/>
+  <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.1/css/bulma.min.css"/>
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.1/css/all.css"
+        integrity="sha384-O8whS3fhG2OnA5Kas0Y9l3cfpmYjapjI0E4theH4iuMD+pLhbf6JI0jIMfYcK3yZ"
+        crossorigin="anonymous">
+  <link rel="stylesheet" href="main.css"/>
 </head>
 <body>
-  <div class="reveal">
-    <div class="slides">
-      <section>
-        <h1>Altair</h1>
-        <h2>the new kid on the block</h2>
-        <img src="images/altair_gallery.png">
-        <p class="footer"><a href="www.example.com">github</a></p>
-      </section>
-      <section>Slide 2</section>
-    </div>
-  </div>
+<div class="reveal">
+  <div class="slides">
+    <section>
+      <h1 class="title is-1">Altair</h1>
+      <h2 class="subtitle is-3">The new kid on the block</h2>
+      <img src="images/altair_gallery.png">
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.6.0/js/reveal.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.6.0/lib/js/head.min.js"></script>
-  <script>
-    // More info about config & dependencies:
-    Reveal.initialize({
-      dependencies: [
-        { src: 'https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.6.0/plugin/highlight/highlight.min.js',
-          async: true,
-          callback: function() { hljs.initHighlightingOnLoad(); } }
-      ]
-    });
-  </script>
+      <div class="columns">
+        <a href="https://github.com/andersbogsnes/altair_demo">
+          <span class="icon"><i class="fab fa-github" aria-hidden="true"></i></span>
+          https://github.com/andersbogsnes/altair_demo
+        </a>
+      </div>
+    </section>
+
+    <section>
+
+      <section>
+        <h1>What is Altair?</h1>
+      </section>
+
+      <section>
+        <div class="content">
+          <blockquote>
+            Altair is a <b>declarative</b> statistical <b>visualization</b> library for
+            <b>Python</b>, based on <b>Vega</b> and <b>Vega-lite</b>
+          </blockquote>
+          <cite class="is-italic"><a href="https://altair-viz.github.io/">https://altair-viz.github.io</a></cite>
+        </div>
+      </section>
+
+      <section>
+        <div class="columns">
+          <div class="column">
+            <img src="images/jvp.jpeg" style="height: auto; width: 320px">
+          </div>
+          <div class="column text-center">
+            <p>Written by Jake Vanderplas...</p>
+          </div>
+        </div>
+
+      </section>
+
+      <section>
+        <div class="columns">
+          <div class="column">
+            <img src="images/python_data_science.jpg" style="width: 320px; height: auto;">
+          </div>
+          <div class="column">
+            <p>...who also wrote this!</p>
+          </div>
+        </div>
+
+      </section>
+
+    </section>
+
+    <section>
+      <section>
+        <h2>Declarative visualizations</h2>
+      </section>
+
+      <section>
+        <img src="images/do_as_I_say.jpg">
+      </section>
+
+      <section>
+        <p>How do we accomplish this?</p>
+      </section>
+
+      <section>
+        <h1>The Grammar of graphics</h1>
+        <div class="fragment">
+          <div class="columns">
+            <div class="column">
+              <figure class="image is-re">
+                <img src="images/grammarofgraphics_crop.jpg"
+                     style="width: 320px; height: 360px; border:none">
+              </figure>
+            </div>
+            <div class="column">
+              <ul>
+                <li class="fragment"><p>Lays out a vocabulary for describing graphics</p></li>
+                <li class="fragment"><p>Foundation of many visualization libraries - most famously
+                  ggplot</p></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section>
+        <div class="columns">
+          <div class="column">
+            <figure class="image is-re">
+              <img src="images/grammarofgraphics_crop.jpg"
+                   style="width: 320px; height: 360px; border:none">
+            </figure>
+          </div>
+          <div class="column">
+            <p style="text-align: left">Lays out the building blocks of visualizations:</p>
+            <ol>
+              <li class="fragment"><b>Data</b></li>
+              <li class="fragment"><b>Transformation</b></li>
+              <li class="fragment"><b>Marks</b></li>
+              <li class="fragment"><b>Encoding</b></li>
+              <li class="fragment"><b>Scale</b></li>
+              <li class="fragment"><b>Guides</b></li>
+            </ol>
+          </div>
+        </div>
+      </section>
+
+      <section>
+
+        <ul>
+
+        </ul>
+      </section>
+
+    </section>
+
+    <section>
+      <section>
+        <p>Vega and Vega-lite?</p>
+      <p class="fragment">If you want interactive graphics - you gotta live in the browser...</p>
+      </section>
+
+      <section>
+        <p>Altair - Python</p>
+        <img src="images/down_arrow.jpg" style="height: 60px; width: auto" class="fragment">
+      </section>
+
+      <section>
+        <p>Vega-lite - JSON</p>
+        <img src="images/down_arrow.jpg" style="height: 60px; width: auto" class="fragment">
+      </section>
+
+      <section>
+        <p>Vega - JSON</p>
+        <img src="images/down_arrow.jpg" style="height: 60px; width: auto" class="fragment">
+      </section>
+      <section>
+        <p>D3</p>
+      </section>
+    </section>
+  </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.6.0/js/reveal.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.6.0/lib/js/head.min.js"></script>
+<script>
+  // More info about config & dependencies:
+  Reveal.initialize({
+    progress: false,
+    dependencies: [
+      {
+        src: 'https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.6.0/plugin/highlight/highlight.min.js',
+        async: true,
+        callback: function () {
+          hljs.initHighlightingOnLoad();
+        }
+      }
+    ]
+  });
+</script>
 
 </body>
 </html>
