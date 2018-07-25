@@ -18,4 +18,11 @@
 
 img {
     border: none!important;
+
+}
+
+.inline {
+    margin: 0 10px 0 0!important;
+    height: 48px;
+    width: auto;
 }

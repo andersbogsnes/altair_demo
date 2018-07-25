@@ -116,7 +116,8 @@
       <section>
         <div class="columns">
           <div class="column is-offset-1">
-            <h2><span><img src="images/seaborn.png" style="width: 48px; height: 48px; margin:0 10px"></span>Seaborn</h2>
+            <h2><span><img src="images/seaborn.png"
+                           style="width: 48px; height: 48px; margin:0 10px"></span>Seaborn</h2>
             <div class="columns">
               <div class="column is-offset-1">
                 <h2>Pros</h2>
@@ -141,12 +142,31 @@
 
       </section>
       <section>
-        <h2><img src="images/plotly.png">Plotly/<img src="images/bokeh.png">Bokeh</h2>
+        <h2><img src="images/plotly_logo.png" class="inline">
+          Plotly/ <img class="inline"
+                      src="images/bokeh.png">Bokeh
+        </h2>
+        <div class="columns">
+          <div class="column is-offset-1">
+            <h2>Pros</h2>
+            <ul>
+              <li class="fragment" data-fragment-index="1">We're on the web!</li>
+              <li class="fragment" data-fragment-index="3">Has built-in serve capabilities!</li>
+              <li class="fragment" data-fragment-index="5">Interactive!</li>
+            </ul>
+          </div>
+          <div class="column is-offset-1">
+            <h2>Cons</h2>
+            <ul>
+              <li class="fragment" data-fragment-index="2">...but we're writing 'javascripty'</li>
+              <li class="fragment" data-fragment-index="4">...in its own ecosystem</li>
+              <li class="fragment" data-fragment-index="6">...but not pythonic</li>
+            </ul>
+          </div>
+        </div>
+
       </section>
 
-      <section>
-        <p>Bokeh</p>
-      </section>
 
     </section>
     <!-- What does declarative mean? -->
@@ -213,188 +233,13 @@
       <h1>Demo Time!</h1>
     </section>
 
-    <!-- Vega and vega-lite -->
+    <!-- Conclusion -->
     <section>
-      <section>
-        <p>Vega and Vega-lite?</p>
-        <p class="fragment">If you want interactive graphics - you gotta live in the browser...</p>
-      </section>
-
-      <section>
-        <p>Altair - Python</p>
-        <img src="images/down_arrow.jpg" style="height: 60px; width: auto" class="fragment">
-      </section>
-
-      <section>
-        <p>Vega-lite - JSON</p>
-        <div class="columns">
-          <div class="column is-centered">
-            <img src="images/vega_lite_json.png">
-          </div>
-        </div>
-
-        <div class="columns">
-          <div class="column is-centered">
-            <img src="images/down_arrow.jpg" style="height: 60px; width: auto" class="fragment">
-          </div>
-        </div>
-      </section>
-
-      <section>
-        <p>Vega - JSON</p>
-        <pre><code data-noescape data-notrim>
-              {
-  "$schema": "https://vega.github.io/schema/vega/v4.json",
-  "width": 400,
-  "height": 200,
-  "padding": 5,
-
-  "data": [
-    {
-      "name": "table",
-      "values": [
-        {"category": "A", "amount": 28},
-        {"category": "B", "amount": 55},
-        {"category": "C", "amount": 43},
-        {"category": "D", "amount": 91},
-        {"category": "E", "amount": 81},
-        {"category": "F", "amount": 53},
-        {"category": "G", "amount": 19},
-        {"category": "H", "amount": 87}
-      ]
-    }
-  ],
-
-  "signals": [
-    {
-      "name": "tooltip",
-      "value": {},
-      "on": [
-        {"events": "rect:mouseover", "update": "datum"},
-        {"events": "rect:mouseout",  "update": "{}"}
-      ]
-    }
-  ],
-
-  "scales": [
-    {
-      "name": "xscale",
-      "type": "band",
-      "domain": {"data": "table", "field": "category"},
-      "range": "width",
-      "padding": 0.05,
-      "round": true
-    },
-    {
-      "name": "yscale",
-      "domain": {"data": "table", "field": "amount"},
-      "nice": true,
-      "range": "height"
-    }
-  ],
-
-  "axes": [
-    { "orient": "bottom", "scale": "xscale" },
-    { "orient": "left", "scale": "yscale" }
-  ],
-
-  "marks": [
-    {
-      "type": "rect",
-      "from": {"data":"table"},
-      "encode": {
-        "enter": {
-          "x": {"scale": "xscale", "field": "category"},
-          "width": {"scale": "xscale", "band": 1},
-          "y": {"scale": "yscale", "field": "amount"},
-          "y2": {"scale": "yscale", "value": 0}
-        },
-        "update": {
-          "fill": {"value": "steelblue"}
-        },
-        "hover": {
-          "fill": {"value": "red"}
-        }
-      }
-    },
-    {
-      "type": "text",
-      "encode": {
-        "enter": {
-          "align": {"value": "center"},
-          "baseline": {"value": "bottom"},
-          "fill": {"value": "#333"}
-        },
-        "update": {
-          "x": {"scale": "xscale", "signal": "tooltip.category", "band": 0.5},
-          "y": {"scale": "yscale", "signal": "tooltip.amount", "offset": -2},
-          "text": {"signal": "tooltip.amount"},
-          "fillOpacity": [
-            {"test": "datum === tooltip", "value": 0},
-            {"value": 1}
-          ]
-        }
-      }
-    }
-  ]
-}
-
-            </code></pre>
-
-      </section>
-      <section>
-        <p>D3 - JavaScript</p>
-        <pre><code data-trim data-noescape>
-    var svg = d3.select("svg"),
-        margin = {top: 20, right: 20, bottom: 30, left: 40},
-        width = +svg.attr("width") - margin.left - margin.right,
-        height = +svg.attr("height") - margin.top - margin.bottom;
-
-    var x = d3.scaleBand().rangeRound([0, width]).padding(0.1),
-        y = d3.scaleLinear().rangeRound([height, 0]);
-
-    var g = svg.append("g")
-        .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
-
-    d3.tsv("data.tsv", function(d) {
-      d.frequency = +d.frequency;
-      return d;
-    }, function(error, data) {
-      if (error) throw error;
-
-      x.domain(data.map(function(d) { return d.letter; }));
-      y.domain([0, d3.max(data, function(d) { return d.frequency; })]);
-
-      g.append("g")
-          .attr("class", "axis axis--x")
-          .attr("transform", "translate(0," + height + ")")
-          .call(d3.axisBottom(x));
-
-      g.append("g")
-          .attr("class", "axis axis--y")
-          .call(d3.axisLeft(y).ticks(10, "%"))
-        .append("text")
-          .attr("transform", "rotate(-90)")
-          .attr("y", 6)
-          .attr("dy", "0.71em")
-          .attr("text-anchor", "end")
-          .text("Frequency");
-
-      g.selectAll(".bar")
-        .data(data)
-        .enter().append("rect")
-          .attr("class", "bar")
-          .attr("x", function(d) { return x(d.letter); })
-          .attr("y", function(d) { return y(d.frequency); })
-          .attr("width", x.bandwidth())
-          .attr("height", function(d) { return height - y(d.frequency); });
-    });
-        </code></pre>
-      </section>
-
-
+      <h1>Thanks for your time!</h1>
+      <p>Feel free to get in touch!</p>
+      <p>abanbn@almbrand.dk</p>
+      <p>We're Hiring!</p>
     </section>
-
   </div>
 </div>
 
